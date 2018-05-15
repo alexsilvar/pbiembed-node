@@ -3,18 +3,21 @@ var adal = require('adal-node');
 var resp = null;
 //Guarda informacoes recebidas via post
 var received = null;
+
+//BEGIN Setup
+const authorityHostUrl = 'https://login.microsoftonline.com/';
+const tenant = 'tenant.onmicrosoft.com'; // AAD Tenant name.
+const uri = authorityHostUrl + tenant;
+const appId = '9033b-xxxxxx-888b0a';
+//BEGIN Administrador dos grupos e usuário PRO	
+const username = 'login_embedded_bi';
+const passwd = 'password_embedded_bi';
+//END Administrador
+const resource = 'https://analysis.windows.net/powerbi/api';
+//ENDSetup
+
 startPBI = (type, groupId, elementId) => {
-	//BEGIN Setup
-	var authorityHostUrl = 'https://login.microsoftonline.com/';
-	var tenant = 'tenant.onmicrosoft.com'; // AAD Tenant name.
-	var uri = authorityHostUrl + tenant;	
-	var appId = '9033b-xxxxxx-888b0a';
-	//BEGIN Administrador dos grupos e usuário PRO	
-	var username = 'login_embedded_bi';
-	var passwd = 'password_embedded_bi';
-	//END Administrador
-	var resource = 'https://analysis.windows.net/powerbi/api';
-	//ENDSetup
+
 	var context = new adal.AuthenticationContext(uri);//Start adal context
 	
 	//Encontrar Token de acesso

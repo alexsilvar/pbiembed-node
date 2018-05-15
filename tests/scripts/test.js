@@ -1,8 +1,8 @@
 $(document).ready(function(){
-	embarcar("report","815-groupId-470","5c1-elelmentID-231","container");
+	embarcar("report","815-groupId-470","5c1-elelmentID-231","container", "http://endereco:porta/pbiembed");
 });
 
-function embarcar(tipo, groupId, elementId, container){
+function embarcar(tipo, groupId, elementId, container, endereco){
 	//Para usar dentro do programa
 	var jsonData ={
 		type: tipo, //Tipo do elemento
@@ -13,7 +13,8 @@ function embarcar(tipo, groupId, elementId, container){
 	data = JSON.stringify(jsonData);	
 	//POST Assincrono
 	var request = new XMLHttpRequest();
-	request.open('POST', 'http://ip.addres.node.running:3000/pbiembed', true);
+	//endereco = 'http://ip.addres.node.running:3000/pbiembed';
+	request.open('POST', endereco , true);
 	request.setRequestHeader('Content-Type', 'application/json');
 	request.onload = function () {
 		console.log('Recebido: ',this.responseText);

@@ -32,11 +32,12 @@ $ npm start
  
  To get the tokens from your developed server you have to pass the parameters like in the ```test.js``` 'test' folder :
  ```sh
- var tp = "report"; // or "dashboard"
+ var tipo = "report"; // or "dashboard"
  var groupId = "815-groupId-470";
  var elementId = "5c1-elelmentID-231";
  var container = "container"; //ID of the div
+ var endereco = "http://endereco.com:porta/pbiembed"; //ID of the div
  
- embarcar(tp, groupId, elementId, container);
+ embarcar(tipo, groupId, elementId, container, endereco);
  ```
  
